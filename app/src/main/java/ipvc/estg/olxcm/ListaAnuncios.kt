@@ -10,6 +10,7 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import ipvc.estg.olxcm.Adapter.AnuncioAdapter
 import ipvc.estg.olxcm.api.Anuncio
@@ -27,7 +28,7 @@ class ListaAnuncios : AppCompatActivity() {
         setContentView(R.layout.activity_lista_anuncios)
 
 
-
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         val request = ServiceBuilder.buildService(Endpoints::class.java)
         val call = request.getAnuncios()
 
