@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/anuncbar"
+            android:title="@string/anuncios"/>
+        <item
+            android:id="@+id/leiloesbar"
+            android:title="@string/leiloes" />
+        <item
+            android:id="@+id/criarleilaobar"
+            android:title="@string/criarLeilao" />
+        <item
+            android:id="@+id/criaranunciobar"
+            android:title="@string/criarAnuncio" />
+        <item
+            android:id="@+id/meusleiloesbar"
+            android:title="@string/meusleiloes" />
+        <item
+            android:id="@+id/meusAnunciosbar"
+            android:title="@string/meusAnuncios" />
+        <item
+            android:id="@+id/perfilbar"
+            android:title="@string/meuPerfil" />
+        <item
+            android:id="@+id/favoritosbar"
+            android:title="@string/favoritos" />
+    </group>
+</menu>
