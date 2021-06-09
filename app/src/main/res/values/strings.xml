@@ -23,4 +23,11 @@
     <string name="favoritos">Favoritos</string>
     <string name="login">Login</string>
     <string name="entra">entra</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="descricao">descricao</string>
+    <string name="preco">preco</string>
+    <string name="titulo_do_anuncio">Titulo do Anuncio</string>
+    <string name="contactar_anunciante">Contactar Anunciante</string>
+    <string name="imagem">imagem</string>
 </resources>

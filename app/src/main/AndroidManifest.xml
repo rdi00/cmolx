@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Olxcm">
-        <activity android:name=".ListaLeiloes"></activity>
+        <activity android:name=".EcraAnunc"></activity>
+        <activity android:name=".EcraAnuncio" />
+        <activity android:name=".ListaLeiloes" />
+        <activity android:name=".ListaAnuncios" />
         <activity android:name=".login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,7 +23,7 @@
         <activity
             android:name=".NavDrawer"
             android:label="@string/title_activity_nav_drawer"
-            android:theme="@style/Theme.Olxcm.NoActionBar"></activity>
+            android:theme="@style/Theme.Olxcm.NoActionBar" />
         <activity android:name=".MainActivity" />
     </application>
 

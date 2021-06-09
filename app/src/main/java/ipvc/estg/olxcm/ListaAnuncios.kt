@@ -20,7 +20,8 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ListaAnuncios : AppCompatActivity() {
+
+class ListaAnuncios : AppCompatActivity()  {
 
     private val newWordActivityRequestCode = 1
     override fun onCreate(savedInstanceState: Bundle?) {

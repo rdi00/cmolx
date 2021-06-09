@@ -1,18 +1,24 @@
 package ipvc.estg.olxcm
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.navigation.NavigationView
+import android.view.MenuItem
+import androidx.annotation.NonNull
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.navigation.NavigationView
+
 
 class NavDrawer : AppCompatActivity() {
 
@@ -34,7 +40,14 @@ class NavDrawer : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow
+                R.id.anuncbar,
+                R.id.leiloesbar,
+                R.id.criarleilaobar,
+                R.id.criaranunciobar,
+                R.id.meusleiloesbar,
+                R.id.meusAnunciosbar,
+                R.id.perfilbar,
+                R.id.favoritosbar
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -51,4 +64,6 @@ class NavDrawer : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
 }
+

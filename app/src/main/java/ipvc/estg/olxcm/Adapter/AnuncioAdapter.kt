@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
+import ipvc.estg.olxcm.EcraAnunc
 import ipvc.estg.olxcm.R
 import ipvc.estg.olxcm.api.Anuncio
 
@@ -40,56 +41,36 @@ class AnunciosViewHolder(itemView : View): RecyclerView.ViewHolder(itemView){
 
     val bt4: ConstraintLayout = itemView.findViewById((R.id.lineline))
 
+
+
     fun bind(anuncio: Anuncio) {
 
-       /* bt4.setOnClickListener {
+       bt4.setOnClickListener {
             val context=titulo.context
             val tit= titulo.text.toString()
-            val descricao= descricao.text.toString()
-            val laitude = ocorrencia.latitude
-            val longitude = ocorrencia.longitude
-            val imagem = "https://cidadeinteligenteze.000webhostapp.com/myslim/API/imagens/" + ocorrencia.imagem + ".png"
-            val id = ocorrencia.id
+            val preco2 =preco.text.toString()
+            val descricao=anuncio.descricao
+            val localizacao = anuncio.localizacao
+            val imagem = anuncio.imagem
+            val id = anuncio.id
+           val data=anuncio.data
+           val user_id= anuncio.utilizador_id
             Log.d("AAAAIMMMAGEM", imagem)
 
-            val intent = Intent( context, OcorrenciaEcra::class.java).apply {
-                putExtra(EXTRA_MESSAGE, tit )
-                putExtra(DESCRICAO, descricao )
-                putExtra(LATITIDAO, laitude )
-                putExtra(LONGITUSAO, longitude )
-                putExtra(ITUSAO, imagem )
-                putExtra(IDU, id )
+            val intent = Intent( context, EcraAnunc::class.java).apply {
+                putExtra("EXTRA_MESSAGE", tit )
+                putExtra("PRECO", preco2 )
+                putExtra("DESCRICAO", descricao )
+                putExtra("LATITIDAO", localizacao )
+                putExtra("ITUSAO", imagem )
+                putExtra("IDU", id )
+                putExtra("DATA", data )
+                putExtra("USER", user_id )
             }
             context.startActivity(intent)
 
 
-        }*/
-
-
-
-
-        /*bt5.setOnClickListener {
-            val context=titulo.context
-            val tit= titulo.text.toString()
-            val descricao= descricao.text.toString()
-            val laitude = ocorrencia.latitude
-            val longitude = ocorrencia.longitude
-            val imagem = ocorrencia.imagem
-
-            val intent = Intent( context, EditarOcorrencia::class.java).apply {
-                putExtra(OCO, tit )
-                putExtra(DESCRICAOO, descricao )
-                putExtra(LATITIDAO, laitude )
-                putExtra(LONGITUSAO, longitude )
-                putExtra(IDU, ocorrencia.id )
-
-
-            }
-            context.startActivity(intent)
-
-
-        }*/
-
+        }
 
         titulo.text = anuncio.titulo
         preco.text = anuncio.preco

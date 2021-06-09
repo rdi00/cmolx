@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/anuncbar">
+
+    <fragment
+        android:id="@+id/anuncbar"
+        android:name="ipvc.estg.olxcm.ListaAnunciosFragment"
+        android:label="fragment_lista_anuncios"
+        tools:layout="@layout/fragment_lista_anuncios" />
+    <fragment
+        android:id="@+id/leiloesbar"
+        android:name="ipvc.estg.olxcm.ListaLeiloesFragment"
+        android:label="fragment_lista_leiloes"
+        tools:layout="@layout/fragment_lista_leiloes" />
+</navigation>
