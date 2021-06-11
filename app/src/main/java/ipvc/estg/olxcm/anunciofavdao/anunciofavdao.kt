@@ -1,11 +1,12 @@
 package ipvc.estg.olxcm.anunciofavdao
 
 import androidx.lifecycle.LiveData
+import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import ipvc.estg.olxcm.Entitie.anunciofav
-
+@Dao
 interface anunciofavdao {
     @Query("select * from anunciovaf order by titulo ASC")
     fun getAll(): LiveData<List<anunciofav>>

@@ -1,6 +1,8 @@
 package ipvc.estg.olxcm.api
 
-data class Anuncio(
+import java.io.Serializable
+
+class Anuncio(
     val id: Int,
     val titulo: String,
     val descricao: String,
@@ -9,4 +11,4 @@ data class Anuncio(
     val utilizador_id: Int,
     val localizacao: String,
     val data: String
-)
+):Serializable

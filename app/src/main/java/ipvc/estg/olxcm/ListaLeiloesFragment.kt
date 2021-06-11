@@ -1,10 +1,22 @@
+@file:Suppress("UNREACHABLE_CODE")
+
 package ipvc.estg.olxcm
 
+import LeilaoAdapter
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import ipvc.estg.olxcm.api.Endpoints
+import ipvc.estg.olxcm.api.Leilao
+import ipvc.estg.olxcm.api.ServiceBuilder
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 private const val ARG_PARAM1 = "param1"
@@ -29,7 +41,28 @@ class ListaLeiloesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_lista_leiloes, container, false)
+
+        val recyclerView = requireView().findViewById<RecyclerView>(R.id.recyclerView2)
+        val request = ServiceBuilder.buildService(Endpoints::class.java)
+        val call = request.getLeiloes()
+
+        call.enqueue(object : Callback<List<Leilao>> {
+            override fun onResponse(call: Call<List<Leilao>>, response: Response<List<Leilao>>) {
+                if (response.isSuccessful){
+
+                    recyclerView.apply {
+                        setHasFixedSize(true)
+                        layoutManager = LinearLayoutManager(this@ListaLeiloesFragment.context)
+                        adapter = LeilaoAdapter(response.body()!!)
+                    }
+                }
+            }
+            override fun onFailure(call: Call<List<Leilao>>, t: Throwable) {
+                Toast.makeText(this@ListaLeiloesFragment.context, "erro?", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
     companion object {

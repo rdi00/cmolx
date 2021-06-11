@@ -1,44 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/lineline2"
     android:layout_width="match_parent"
-    android:layout_height="60dp"
+    android:layout_height="90dp"
     android:layout_marginTop="10dp"
     android:background="@drawable/backgroundline">
 
     <TextView
         android:id="@+id/tituloLeilao"
 
-        android:layout_width="200dp"
-        android:layout_height="20dp"
+        android:layout_width="187dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="68dp"
+        android:text="Data Final e Valor Inicial "
         android:textColor="@color/Preto"
-        android:textSize="18dp"
+        android:textSize="17dp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="143dp"
-        tools:layout_editor_absoluteY="0dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <TextView
-        android:id="@+id/descricaoLeilao"
+        android:id="@+id/dataFinalLeilao"
 
         android:layout_width="200dp"
         android:layout_height="20dp"
 
 
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="52dp"
         android:textColor="@color/Preto"
         android:textSize="15dp"
-        tools:layout_editor_absoluteX="143dp"
-        tools:layout_editor_absoluteY="35dp"></TextView>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tituloLeilao"></TextView>
+
+    <TextView
+        android:id="@+id/valorInicialLeilao"
+
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+
+
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="52dp"
+        android:textColor="@color/Preto"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
 
     <ImageView
         android:id="@+id/imagemImaginaLeilao"
-        android:layout_width="110dp"
-        android:layout_height="55dp"
+        android:layout_width="102dp"
+        android:layout_height="68dp"
 
-        android:layout_marginTop="2dp"
-        android:layout_marginBottom="2dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginBottom="11dp"
         android:visibility="visible"
-         />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
