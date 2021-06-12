@@ -3,6 +3,7 @@ package ipvc.estg.olxcm.api
 data class Leilao(
 
 val id: Int,
+val titulo: String,
 val valor_inicial: String,
 val data_fim: String,
 val valor_atual: String,

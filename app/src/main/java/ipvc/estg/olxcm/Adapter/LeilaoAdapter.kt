@@ -41,9 +41,9 @@ class LeiloesViewHolder(itemView : View): RecyclerView.ViewHolder(itemView){
 
          bt4.setOnClickListener {
              val context=titulo.context
-             val tit= titulo.text.toString()
-             val data= data.text.toString()
-             val preco = preco.text.toString()
+             val tit= leilao.titulo
+             val data= leilao.data_fim
+             val preco = leilao.valor_inicial
              val lance_atual = leilao.valor_atual
              val imagem = leilao.imagem
              val id = leilao.id

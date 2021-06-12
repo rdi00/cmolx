@@ -46,8 +46,8 @@ class AnunciosViewHolder(itemView : View): RecyclerView.ViewHolder(itemView){
 
         bt4.setOnClickListener {
             val context=titulo.context
-            val tit= titulo.text.toString()
-            val preco2 =preco.text.toString()
+            val tit= anuncio.titulo
+            val preco2 =anuncio.preco
             val descricao=anuncio.descricao
             val localizacao = anuncio.localizacao
             val imagem = anuncio.imagem

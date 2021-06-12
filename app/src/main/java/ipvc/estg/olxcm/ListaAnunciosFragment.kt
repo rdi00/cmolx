@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView
 import ipvc.estg.olxcm.Adapter.AnuncioAdapter
 import ipvc.estg.olxcm.api.Anuncio
 import ipvc.estg.olxcm.api.Endpoints
-import ipvc.estg.olxcm.api.RespostaAnuncios
 import ipvc.estg.olxcm.api.ServiceBuilder
 import retrofit2.Call
 import retrofit2.Callback

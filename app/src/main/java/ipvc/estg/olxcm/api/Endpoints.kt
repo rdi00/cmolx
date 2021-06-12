@@ -14,7 +14,11 @@ interface Endpoints {
     fun getLeiloes(): Call<List<Leilao>>
 
     @FormUrlEncoded
-    @POST("updatelance")
-    fun lance(@Field ("id") id: Int,@Field ("id_comprador") id_comprador: String,
-              @Field ("valor_atual") valor_atual:String): Call<Leilao>
+    @POST("/updatelance/{id}/{id_comprador}/{valor_atual}")
+    fun lance(@Path ("id") id: Int,@Path ("id_comprador") id_comprador: String,
+              @Path("valor_atual") valor_atual:String): Call<Leilao>
+
+    @FormUrlEncoded
+    @POST("/leilao/{id}")
+    fun leilao(@Path ("id") id: Int): Call<Leilao>
 }
