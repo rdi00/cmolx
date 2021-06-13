@@ -56,10 +56,13 @@ class EcraAnunc : AppCompatActivity() {
 
         //favoritos
         val  checkBox = findViewById<CheckBox>(R.id.checkFav);
-        if (checkBox.isChecked()) {
-            val anuncio = anunciofav(titulo = tit, descricao = descricao, localizacao = localizacao, preco = preco , data = data, utilizador = user)
-            viewModel.insert(anuncio)
+        checkBox.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                val anuncio = anunciofav(titulo = tit, descricao = descricao, localizacao = localizacao, preco = preco , data = data, utilizador = user)
+                viewModel.insert(anuncio)
+            }
         }
 
     }
+
 }
