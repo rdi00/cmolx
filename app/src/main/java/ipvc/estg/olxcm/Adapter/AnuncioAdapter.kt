@@ -44,17 +44,19 @@ class AnunciosViewHolder(itemView : View): RecyclerView.ViewHolder(itemView){
 
     fun bind(anuncio: Anuncio) {
 
+        val context=titulo.context
+        val tit= anuncio.titulo
+        val preco2 =anuncio.preco
+        val descricao=anuncio.descricao
+        val localizacao = anuncio.localizacao
+        val imagem = anuncio.imagem
+        val id = anuncio.id
+        val data=anuncio.data
+        val user_id= anuncio.utilizador_id
+        Log.d("AAAAIMMMAGEM", imagem)
+
         bt4.setOnClickListener {
-            val context=titulo.context
-            val tit= anuncio.titulo
-            val preco2 =anuncio.preco
-            val descricao=anuncio.descricao
-            val localizacao = anuncio.localizacao
-            val imagem = anuncio.imagem
-            val id = anuncio.id
-            val data=anuncio.data
-            val user_id= anuncio.utilizador_id
-            Log.d("AAAAIMMMAGEM", imagem)
+
 
             val intent = Intent( context, EcraAnunc::class.java).apply {
                 putExtra("EXTRA_MESSAGE", tit )

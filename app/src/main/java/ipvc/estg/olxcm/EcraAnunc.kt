@@ -18,12 +18,12 @@ class EcraAnunc : AppCompatActivity() {
 
         var intent = intent
         val tit = intent.getStringExtra("EXTRA_MESSAGE")
-        val preco = intent.getStringExtra("PRECO")
-        val descricao = intent.getStringExtra("DESCRICAO")
+        val preco = intent.getStringExtra("PRECO").toString()
+        val descricao = intent.getStringExtra("DESCRICAO").toString()
         val localizacao= intent.getStringExtra("LATITIDAO")
-        val imagem= intent.getStringExtra("ITUSAO")
-        val data= intent.getStringExtra("DATA")
-        val user= intent.getStringExtra("USER")
+        val imagem= intent.getStringExtra("ITUSAO").toString()
+        val data= intent.getStringExtra("DATA").toString()
+        val user= intent.getStringExtra("USER").toString()
 
 
 
@@ -38,8 +38,7 @@ class EcraAnunc : AppCompatActivity() {
         //read imagem
         val imageBytes = Base64.getDecoder().decode(imagem)
         val decoded = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
-        val imgV =findViewById<ImageView>(R.id.imageView)
-        //imgV.setImageBitmap(decoded)
+        findViewById<ImageView>(R.id.imgAnuncio).setImageBitmap(decoded)
         //favoritos
 
         findViewById<TextView>(R.id.dataText).setText(data)

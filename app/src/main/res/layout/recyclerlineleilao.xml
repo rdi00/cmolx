@@ -11,12 +11,10 @@
 
     <TextView
         android:id="@+id/tituloLeilao"
-
         android:layout_width="187dp"
         android:layout_height="29dp"
         android:layout_marginTop="11dp"
         android:layout_marginEnd="68dp"
-        android:text="Data Final e Valor Inicial "
         android:textColor="@color/Preto"
         android:textSize="17dp"
         android:textStyle="bold"
@@ -36,7 +34,7 @@
         android:textColor="@color/Preto"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tituloLeilao"></TextView>
+        app:layout_constraintTop_toBottomOf="@+id/tituloLeilao" />
 
     <TextView
         android:id="@+id/valorInicialLeilao"
@@ -50,7 +48,7 @@
         android:textColor="@color/Preto"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></TextView>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imagemImaginaLeilao"
@@ -64,6 +62,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="1.0"
+       />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

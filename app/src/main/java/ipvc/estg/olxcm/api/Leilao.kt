@@ -1,6 +1,8 @@
 package ipvc.estg.olxcm.api
 
-data class Leilao(
+import java.io.Serializable
+
+class Leilao(
 
 val id: Int,
 val titulo: String,
@@ -12,4 +14,4 @@ val utilizador_id: Int,
 val imagem: String,
 val id_comprador: Int,
 
-)
+):Serializable

@@ -39,22 +39,22 @@ class LeiloesViewHolder(itemView : View): RecyclerView.ViewHolder(itemView){
 
     fun bind(leilao: Leilao) {
 
-         bt4.setOnClickListener {
-             val context=titulo.context
-             val tit= leilao.titulo
-             val data= leilao.data_fim
-             val preco = leilao.valor_inicial
-             val lance_atual = leilao.valor_atual
-             val imagem = leilao.imagem
-             val id = leilao.id
-             val user_id = leilao.utilizador_id
-             val comprador = leilao.id_comprador
+        val context=titulo.context
+        val tit= leilao.titulo
+        val datinha= leilao.data_fim
+        val precinho = leilao.valor_inicial
+        val lance_atual = leilao.valor_atual
+        val imagem = leilao.imagem
+        val id = leilao.id
+        val user_id = leilao.utilizador_id
+        val comprador = leilao.id_comprador
 
+         bt4.setOnClickListener {
 
              val intent = Intent( context, LeilaoEcra::class.java).apply {
                  putExtra("TIT", tit )
-                 putExtra("DATA", data)
-                 putExtra("PRECO", preco )
+                 putExtra("DATA", datinha)
+                 putExtra("PRECO", precinho )
                  putExtra("LANCE", lance_atual )
                  putExtra("IMG", imagem )
                  putExtra("ID", id )
@@ -65,7 +65,6 @@ class LeiloesViewHolder(itemView : View): RecyclerView.ViewHolder(itemView){
 
 
          }
-
 
         data.text = leilao.data_fim
         preco.text = leilao.valor_inicial
