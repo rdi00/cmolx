@@ -5,12 +5,17 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.RequiresApi
+import ipvc.estg.olxcm.Entitie.anunciofav
+import ipvc.estg.olxcm.ViewModel.ViewModel
 import java.util.*
 
 class EcraAnunc : AppCompatActivity() {
+    @RequiresApi(Build.VERSION_CODES.O)
+    private lateinit var viewModel: ViewModel
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +44,7 @@ class EcraAnunc : AppCompatActivity() {
         val imageBytes = Base64.getDecoder().decode(imagem)
         val decoded = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
         findViewById<ImageView>(R.id.imgAnuncio).setImageBitmap(decoded)
-        //favoritos
+
 
         findViewById<TextView>(R.id.dataText).setText(data)
 
@@ -47,6 +52,13 @@ class EcraAnunc : AppCompatActivity() {
 
         btnChat.setOnClickListener{
             //atividade chat
+        }
+
+        //favoritos
+        val  checkBox = findViewById<CheckBox>(R.id.checkFav);
+        if (checkBox.isChecked()) {
+            val anuncio = anunciofav(titulo = tit, descricao = descricao, localizacao = localizacao, preco = preco , data = data, utilizador = user)
+            viewModel.insert(anuncio)
         }
 
     }

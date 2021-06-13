@@ -8,11 +8,11 @@ import androidx.room.PrimaryKey
 
 class anunciofav(
         @PrimaryKey(autoGenerate = true) val id: Int? = null,
-        @ColumnInfo(name = "titulo") val nome: String,
-        @ColumnInfo(name = "descricao") val descricao: String,
-        @ColumnInfo(name = "latitude") val latitude: String,
-        @ColumnInfo(name = "longitude") val longitude: String,
-        @ColumnInfo(name = "contacto") val contacto: String,
-        @ColumnInfo(name = "utilizador") val utilizador: String,
-        @ColumnInfo(name = "data") val data: String,
+        @ColumnInfo(name = "titulo") val titulo: String?,
+        @ColumnInfo(name = "descricao") val descricao: String?,
+        @ColumnInfo(name = "preco") val preco: String?,
+        @ColumnInfo(name = "localizacao") val localizacao: String?,
+        @ColumnInfo(name = "contacto") val contacto: String?,
+        @ColumnInfo(name = "utilizador") val utilizador: String?,
+        @ColumnInfo(name = "data") val data: String?,
 )
