@@ -12,7 +12,6 @@ class anunciofav(
         @ColumnInfo(name = "descricao") val descricao: String?,
         @ColumnInfo(name = "preco") val preco: String?,
         @ColumnInfo(name = "localizacao") val localizacao: String?,
-        @ColumnInfo(name = "contacto") val contacto: String?,
         @ColumnInfo(name = "utilizador") val utilizador: String?,
         @ColumnInfo(name = "data") val data: String?,
 )
