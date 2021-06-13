@@ -48,17 +48,16 @@ class ListaAnunciosFragment : Fragment() {
         val call = request.getAnuncios()
 
 
-        Log.d("CCCCCCCCC", call.toString())
         call.enqueue(object : Callback<List<Anuncio>> {
             override fun onResponse(call: Call<List<Anuncio>>, response: Response<List<Anuncio>>) {
-                Log.d("CCCCCCCCC", "hello")
+
                 if (response.isSuccessful){
-                    Log.d("BBBBBBBBBBBB","hello")
+
                 recyclerView?.apply {
                     setHasFixedSize(true)
                     layoutManager = LinearLayoutManager(this@ListaAnunciosFragment.context)
                     adapter = AnuncioAdapter(response.body()!!)
-                    Log.d("AAAAAAAAAAAAAAAAA", response.body()!!.toString())
+
 
                     }
                 }

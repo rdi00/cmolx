@@ -41,10 +41,8 @@ class ListaLeiloesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
-        return inflater.inflate(R.layout.fragment_lista_leiloes, container, false)
-
-        val recyclerView = requireView().findViewById<RecyclerView>(R.id.recyclerView2)
+        val rootView = inflater?.inflate(R.layout.fragment_lista_leiloes, container, false)
+        val recyclerView = rootView?.findViewById<RecyclerView>(R.id.recyclerView2)
         val request = ServiceBuilder.buildService(Endpoints::class.java)
         val call = request.getLeiloes()
 
@@ -52,7 +50,7 @@ class ListaLeiloesFragment : Fragment() {
             override fun onResponse(call: Call<List<Leilao>>, response: Response<List<Leilao>>) {
                 if (response.isSuccessful){
 
-                    recyclerView.apply {
+                    recyclerView?.apply {
                         setHasFixedSize(true)
                         layoutManager = LinearLayoutManager(this@ListaLeiloesFragment.context)
                         adapter = LeilaoAdapter(response.body()!!)
@@ -63,6 +61,7 @@ class ListaLeiloesFragment : Fragment() {
                 Toast.makeText(this@ListaLeiloesFragment.context, "erro?", Toast.LENGTH_SHORT).show()
             }
         })
+        return rootView
     }
 
     companion object {

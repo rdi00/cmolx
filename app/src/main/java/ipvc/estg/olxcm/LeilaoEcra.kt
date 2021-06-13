@@ -6,6 +6,7 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.widget.*
 import androidx.annotation.RequiresApi
 import ipvc.estg.olxcm.api.Endpoints
@@ -79,15 +80,14 @@ class LeilaoEcra : AppCompatActivity() {
                 val request = ServiceBuilder.buildService(Endpoints::class.java)
                 val call = request.leilao(id)
 
-
-
                 //edita
                 call.enqueue(object : Callback<Leilao> {
                     override fun onResponse(call: Call<Leilao>, response: Response<Leilao>) {
+                        Log.d("OLA", response.toString())
                         if (response.isSuccessful) {
                             Toast.makeText(this@LeilaoEcra, "reload", Toast.LENGTH_SHORT).show()
                             val l: Leilao = response.body()!!
-                            findViewById<TextView>(R.id.ultimoLance).setText(l.valor_atual)
+                            findViewById<TextView>(R.id.ultimoLance).setText(l.valor_atual.toString())
 
                         } else {
                             Toast.makeText(this@LeilaoEcra,"Erro reload", Toast.LENGTH_SHORT).show()
