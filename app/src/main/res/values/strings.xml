@@ -30,4 +30,6 @@
     <string name="titulo_do_anuncio">Titulo do Anuncio</string>
     <string name="contactar_anunciante">Contactar Anunciante</string>
     <string name="imagem">imagem</string>
+    <string name="preference_file_key">spk</string>
+    <string name="id">id</string>
 </resources>

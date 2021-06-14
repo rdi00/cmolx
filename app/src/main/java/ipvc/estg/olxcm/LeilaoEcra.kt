@@ -32,7 +32,7 @@ class LeilaoEcra : AppCompatActivity() {
         val lance = intent.getStringExtra("LANCE")
         val img = intent.getStringExtra("IMG")
         val vendedor = intent.getStringExtra("VENDEDOR")
-        val comprador = intent.getStringExtra("COMPRADOR").toString()
+        val comprador = intent.getIntExtra("COMPRADOR",0)
 
 
         findViewById<TextView>(R.id.titLeilao).setText(tit)
@@ -87,7 +87,7 @@ class LeilaoEcra : AppCompatActivity() {
                         if (response.isSuccessful) {
                             Toast.makeText(this@LeilaoEcra, "reload", Toast.LENGTH_SHORT).show()
                             val l: Leilao = response.body()!!
-                            findViewById<TextView>(R.id.ultimoLance).setText(l.valor_atual.toString())
+                            findViewById<TextView>(R.id.ultimoLance).setText(l.valor_atual)
 
                         } else {
                             Toast.makeText(this@LeilaoEcra,"Erro reload", Toast.LENGTH_SHORT).show()
@@ -95,6 +95,7 @@ class LeilaoEcra : AppCompatActivity() {
                     }
 
                     override fun onFailure(call: Call<Leilao>, t: Throwable) {
+
                         Toast.makeText(this@LeilaoEcra, "${t.message}", Toast.LENGTH_SHORT).show()
                     }
                 })
