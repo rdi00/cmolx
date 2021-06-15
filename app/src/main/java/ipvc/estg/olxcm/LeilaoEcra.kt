@@ -1,6 +1,8 @@
 package ipvc.estg.olxcm
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.BitmapFactory
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -26,7 +28,7 @@ class LeilaoEcra : AppCompatActivity() {
 
         var intent = intent
         val tit = intent.getStringExtra("TIT")
-        val id = intent.getIntExtra("ID",0)
+        val idL = intent.getIntExtra("ID",0)
         val data = intent.getStringExtra("DATA")
         val preco = intent.getStringExtra("PRECO")
         val lance = intent.getStringExtra("LANCE")
@@ -36,9 +38,9 @@ class LeilaoEcra : AppCompatActivity() {
 
 
         findViewById<TextView>(R.id.titLeilao).setText(tit)
-        findViewById<TextView>(R.id.precoInicial).setText(preco)
-        findViewById<TextView>(R.id.ultimoLance).setText(lance)
-        findViewById<TextView>(R.id.dataFim).setText(data)
+        findViewById<TextView>(R.id.precoInicial).setText("Preço inicial:" + preco + "euros")
+        findViewById<TextView>(R.id.ultimoLance).setText("Ultimo Lance: " + lance)
+        findViewById<TextView>(R.id.dataFim).setText("Data do Fim :" + data)
 
         val imageBytes = Base64.getDecoder().decode(img)
         val decoded = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
@@ -49,9 +51,13 @@ class LeilaoEcra : AppCompatActivity() {
 
         val licita = findViewById<Button>(R.id.licitar)
         licita.setOnClickListener {
+            val sharedPref: SharedPreferences = getSharedPreferences(
+                getString(R.string.preference_file_key), Context.MODE_PRIVATE)
+
+            val iduser:Int = sharedPref.getInt(R.string.id.toString(), 0)
             val novoLicita = findViewById<EditText>(R.id.novoValor).text.toString()
             val request = ServiceBuilder.buildService(Endpoints::class.java)
-            val call = request.lance(id, comprador , novoLicita )
+            val call = request.lance(idL, iduser , novoLicita )
             var intento = Intent(this, LeilaoEcra::class.java)
 
 
@@ -60,7 +66,9 @@ class LeilaoEcra : AppCompatActivity() {
                 override fun onResponse(call: Call<Leilao>, response: Response<Leilao>) {
                     if (response.isSuccessful) {
                         Toast.makeText(this@LeilaoEcra, "Lance Feito", Toast.LENGTH_SHORT).show()
-                        startActivity(intento)
+                        //val lei= response.body()!!
+                        //findViewById<TextView>(R.id.ultimoLance).setText("Ultimo Lance: " + lei.valor_atual)
+
 
                     } else {
                         Toast.makeText(this@LeilaoEcra,"Erro no lance", Toast.LENGTH_SHORT).show()
@@ -78,7 +86,7 @@ class LeilaoEcra : AppCompatActivity() {
         handler.postDelayed(object : Runnable {
             override fun run() {
                 val request = ServiceBuilder.buildService(Endpoints::class.java)
-                val call = request.leilao(id)
+                val call = request.leilao(idL)
 
                 //edita
                 call.enqueue(object : Callback<Leilao> {
@@ -87,7 +95,7 @@ class LeilaoEcra : AppCompatActivity() {
                         if (response.isSuccessful) {
                             Toast.makeText(this@LeilaoEcra, "reload", Toast.LENGTH_SHORT).show()
                             val l: Leilao = response.body()!!
-                            findViewById<TextView>(R.id.ultimoLance).setText(l.valor_atual)
+                            findViewById<TextView>(R.id.ultimoLance).setText("Ultimo Lance: " + l.valor_atual)
 
                         } else {
                             Toast.makeText(this@LeilaoEcra,"Erro reload", Toast.LENGTH_SHORT).show()
@@ -99,7 +107,7 @@ class LeilaoEcra : AppCompatActivity() {
                         Toast.makeText(this@LeilaoEcra, "${t.message}", Toast.LENGTH_SHORT).show()
                     }
                 })
-                handler.postDelayed(this, 10000)//10 sec delay
+                handler.postDelayed(this, 5000)//5 sec delay
             }
         }, 0)
 

@@ -15,7 +15,7 @@ interface Endpoints {
     fun getLeiloes(): Call<List<Leilao>>
 
 
-    @POST("/updatelance/:id/:id_comprador/:valor_atual")
+    @POST("/updatelance/{id}/{id_comprador}/{valor_atual}")
     fun lance(@Path ("id") id: Int,@Path ("id_comprador") id_comprador: Int,
               @Path("valor_atual") valor_atual:String): Call<Leilao>
 

@@ -74,7 +74,7 @@ class AnunciosViewHolder(itemView : View): RecyclerView.ViewHolder(itemView){
         }
 
         titulo.text = anuncio.titulo
-        preco.text = anuncio.preco
+        preco.text = anuncio.preco + "euros"
 
 
     }
