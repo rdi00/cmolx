@@ -43,11 +43,9 @@
         android:id="@+id/ultimoLance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:text="Ultimo lance:"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="164dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/precoInicial" />
 
     <Button
@@ -86,4 +84,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ultimoLance"
         app:layout_constraintVertical_bias="0.73" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="40dp"
+        android:text="Ultimo Lance:"
+        app:layout_constraintBottom_toTopOf="@+id/novoValor"
+        app:layout_constraintEnd_toStartOf="@+id/ultimoLance" />
 </androidx.constraintlayout.widget.ConstraintLayout>

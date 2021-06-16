@@ -1,5 +1,7 @@
 package ipvc.estg.olxcm
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -11,6 +13,8 @@ import android.os.Handler
 import android.util.Log
 import android.widget.*
 import androidx.annotation.RequiresApi
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import ipvc.estg.olxcm.api.Endpoints
 import ipvc.estg.olxcm.api.Leilao
 import ipvc.estg.olxcm.api.ServiceBuilder
@@ -20,11 +24,13 @@ import retrofit2.Response
 import java.util.*
 
 class LeilaoEcra : AppCompatActivity() {
+    private val CHANNEL_ID = "channel_id_example_01"
+    private val notificationId = 101
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_leilao_ecra)
-
+        createNotificationChannel()
 
         var intent = intent
         val tit = intent.getStringExtra("TIT")
@@ -39,7 +45,7 @@ class LeilaoEcra : AppCompatActivity() {
 
         findViewById<TextView>(R.id.titLeilao).setText(tit)
         findViewById<TextView>(R.id.precoInicial).setText("Preço inicial:" + preco + "euros")
-        findViewById<TextView>(R.id.ultimoLance).setText("Ultimo Lance: " + lance)
+        findViewById<TextView>(R.id.ultimoLance).setText( lance)
         findViewById<TextView>(R.id.dataFim).setText("Data do Fim :" + data)
 
         val imageBytes = Base64.getDecoder().decode(img)
@@ -95,8 +101,35 @@ class LeilaoEcra : AppCompatActivity() {
                         if (response.isSuccessful) {
                             //Toast.makeText(this@LeilaoEcra, "reload", Toast.LENGTH_SHORT).show()
                             val l: Leilao = response.body()!!
-                            findViewById<TextView>(R.id.ultimoLance).setText("Ultimo Lance: " + l.valor_atual)
 
+                            if (findViewById<TextView>(R.id.ultimoLance).text !=  l.valor_atual) {
+                                val bitmap = BitmapFactory.decodeResource(
+                                    applicationContext.resources,
+                                    R.drawable.ic_launcher_foreground
+                                )
+                                val bitmapLargeIcon = BitmapFactory.decodeResource(
+                                    applicationContext.resources,
+                                    R.drawable.ic_launcher_foreground
+                                )
+
+                                val builderText =
+                                    NotificationCompat.Builder(this@LeilaoEcra, CHANNEL_ID)
+                                        .setSmallIcon(R.drawable.ic_launcher_foreground)
+                                        .setContentTitle("Nova liçitaçao ")
+                                        .setContentText("${l.titulo} no valor de ${l.valor_atual}")
+                                        .setLargeIcon(bitmapLargeIcon)
+                                        .setStyle(
+                                            NotificationCompat.BigTextStyle()
+                                                .bigText("Nova liçitaçao em ${l.titulo} no valor de ${l.valor_atual}")
+                                        )
+                                        .setAutoCancel(true)
+                                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+                                with(NotificationManagerCompat.from(this@LeilaoEcra)) {
+                                    notify(notificationId, builderText.build())
+                                }
+                            }
+                            findViewById<TextView>(R.id.ultimoLance).setText(l.valor_atual)
                         } else {
                             Toast.makeText(this@LeilaoEcra,"Erro reload", Toast.LENGTH_SHORT).show()
                         }
@@ -113,5 +146,19 @@ class LeilaoEcra : AppCompatActivity() {
 
     }
 
+
+    private fun createNotificationChannel() {
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val name = "Notification Title"
+            val descriptionText = "Notification Description"
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
+                description= descriptionText
+            }
+            val notificationManager: NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+        }
+    }
 
 }
