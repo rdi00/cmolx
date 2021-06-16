@@ -15,4 +15,9 @@
         android:name="ipvc.estg.olxcm.ListaLeiloesFragment"
         android:label="fragment_lista_leiloes"
         tools:layout="@layout/fragment_lista_leiloes" />
+    <fragment
+        android:id="@+id/favoritosbar"
+        android:name="ipvc.estg.olxcm.ListaFav"
+        android:label="fragment_lista_fav"
+        tools:layout="@layout/fragment_lista_fav" />
 </navigation>

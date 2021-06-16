@@ -8,13 +8,16 @@ import androidx.recyclerview.widget.RecyclerView
 import ipvc.estg.olxcm.Entitie.anunciofav
 import ipvc.estg.olxcm.ListaFav
 import ipvc.estg.olxcm.R
+import okio.Utf8.size
+import java.nio.file.Files.size
+import ipvc.estg.olxcm.api.Anuncio
 
 class FavAdapter internal constructor(
     context: ListaFav,
     private val callbackInterface: ListaFav
 ) : RecyclerView.Adapter<FavAdapter.AnuncioViewHolder>() {
 
-    private val inflater: LayoutInflater = LayoutInflater.from(context)
+    private val inflater: LayoutInflater = LayoutInflater.from(context.context)
     private var anuncios = emptyList<anunciofav>() // Cached copy of cities
 
     interface CallbackInterface {
@@ -39,7 +42,14 @@ class FavAdapter internal constructor(
         notifyDataSetChanged()
     }
 
+    override fun onBindViewHolder(holder: AnuncioViewHolder, position: Int) {
+        TODO("Not yet implemented")
+    }
+
+    override fun getItemCount(): Int {
+        TODO("Not yet implemented")
+    }
 
 
-    override fun getItemCount() = anunciofav.size
+    //override fun getItemCount() = anunciofav.size
 }

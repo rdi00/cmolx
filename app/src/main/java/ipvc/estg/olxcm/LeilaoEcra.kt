@@ -35,9 +35,9 @@ class LeilaoEcra : AppCompatActivity() {
 
 
         findViewById<TextView>(R.id.titLeilao).setText(tit)
-        findViewById<TextView>(R.id.precoInicial).setText(preco)
-        findViewById<TextView>(R.id.ultimoLance).setText(lance)
-        findViewById<TextView>(R.id.dataFim).setText(data)
+        findViewById<TextView>(R.id.precoInicial).setText("Preço:" + preco)
+        findViewById<TextView>(R.id.ultimoLance).setText("Ultimo Lance: " + lance)
+        findViewById<TextView>(R.id.dataFim).setText("Data Fim: " + data)
 
         val imageBytes = Base64.getDecoder().decode(img)
         val decoded = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
@@ -79,15 +79,13 @@ class LeilaoEcra : AppCompatActivity() {
                 val request = ServiceBuilder.buildService(Endpoints::class.java)
                 val call = request.leilao(id)
 
-
-
                 //edita
                 call.enqueue(object : Callback<Leilao> {
                     override fun onResponse(call: Call<Leilao>, response: Response<Leilao>) {
                         if (response.isSuccessful) {
-                            Toast.makeText(this@LeilaoEcra, "reload", Toast.LENGTH_SHORT).show()
+                            //Toast.makeText(this@LeilaoEcra, "reload", Toast.LENGTH_SHORT).show()
                             val l: Leilao = response.body()!!
-                            findViewById<TextView>(R.id.ultimoLance).setText(l.valor_atual)
+                            findViewById<TextView>(R.id.ultimoLance).setText("Ultimo Lance: " +l.valor_atual)
 
                         } else {
                             Toast.makeText(this@LeilaoEcra,"Erro reload", Toast.LENGTH_SHORT).show()
@@ -98,7 +96,7 @@ class LeilaoEcra : AppCompatActivity() {
                         Toast.makeText(this@LeilaoEcra, "${t.message}", Toast.LENGTH_SHORT).show()
                     }
                 })
-                handler.postDelayed(this, 10000)//10 sec delay
+                handler.postDelayed(this, 5000)//10 sec delay
             }
         }, 0)
 

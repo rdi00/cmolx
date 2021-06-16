@@ -68,6 +68,7 @@ class LeiloesViewHolder(itemView : View): RecyclerView.ViewHolder(itemView){
 
         data.text = leilao.data_fim
         preco.text = leilao.valor_inicial
+        titulo.text=leilao.titulo
 
 
     }

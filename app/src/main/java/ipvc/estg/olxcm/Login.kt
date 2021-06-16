@@ -13,7 +13,7 @@ class login : AppCompatActivity() {
         
         val login = findViewById<Button>(R.id.login)
         login.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, NavDrawer::class.java)
             startActivity(intent)
         }
     }

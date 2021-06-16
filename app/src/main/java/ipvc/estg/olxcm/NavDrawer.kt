@@ -30,7 +30,7 @@ class NavDrawer : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        val fab: FloatingActionButton = findViewById(R.id.fab)
+
         //fab.setOnClickListener {
         //}
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)

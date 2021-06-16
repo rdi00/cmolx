@@ -34,9 +34,10 @@ class EcraAnunc : AppCompatActivity() {
 
 
         findViewById<TextView>(R.id.tituloanunc).setText(tit)
-        findViewById<TextView>(R.id.descrianuncio).setText(descricao)
-        findViewById<TextView>(R.id.precoAnunc).setText(preco)
-        findViewById<TextView>(R.id.localizacao).setText(localizacao)
+        findViewById<TextView>(R.id.descrianuncio).setText("Descrição: " + descricao)
+        findViewById<TextView>(R.id.precoAnunc).setText("Preço: "+preco)
+        findViewById<TextView>(R.id.localizacao).setText("Local de venda: "+localizacao)
+
         //latitude e longitude para o mapa???
 
 
