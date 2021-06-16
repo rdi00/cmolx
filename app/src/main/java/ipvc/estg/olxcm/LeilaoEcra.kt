@@ -93,7 +93,7 @@ class LeilaoEcra : AppCompatActivity() {
                     override fun onResponse(call: Call<Leilao>, response: Response<Leilao>) {
                         Log.d("OLA", response.toString())
                         if (response.isSuccessful) {
-                            Toast.makeText(this@LeilaoEcra, "reload", Toast.LENGTH_SHORT).show()
+                            //Toast.makeText(this@LeilaoEcra, "reload", Toast.LENGTH_SHORT).show()
                             val l: Leilao = response.body()!!
                             findViewById<TextView>(R.id.ultimoLance).setText("Ultimo Lance: " + l.valor_atual)
 
