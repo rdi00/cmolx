@@ -1,14 +1,16 @@
 package ipvc.estg.olxcm
 
+import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import java.util.*
+
 
 class EcraAnunc : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
@@ -45,9 +47,17 @@ class EcraAnunc : AppCompatActivity() {
 
         val btnChat = findViewById<Button>(R.id.btnChat)
 
+
         btnChat.setOnClickListener{
-            //atividade chat
+
+            val intent = Intent(this, ChatLog::class.java)
+            intent.putExtra(USER_KEY, user)
+            startActivity(intent)
         }
 
+    }
+
+    companion object {
+        val USER_KEY = "USER_KEY"
     }
 }

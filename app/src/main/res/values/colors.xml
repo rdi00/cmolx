@@ -8,7 +8,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="Preto">#000000</color>
+    <color name="cinzaChat">#A2A2A2</color>
     <color name="Vermelho">#EE0000</color>
     <color name="Cinza">#DADADA</color>
     <color name="Cinza1">#E8E5E5</color>
+    <color name="Mensagem_Enviada">#10BC41</color>
+    <color name="Mensagem_recebida">#CC292929</color>
 </resources>

@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import ipvc.estg.olxcm.R
+import com.google.firebase.auth.FirebaseAuth
 import ipvc.estg.olxcm.api.Endpoints
 import ipvc.estg.olxcm.api.ServiceBuilder
 import ipvc.estg.olxcm.api.Utilizador
@@ -17,6 +18,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class login : AppCompatActivity() {
+    private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -60,6 +62,16 @@ class login : AppCompatActivity() {
                                 putInt(R.string.id.toString(), i.id)
                                 commit()
                             }
+                            var email = ""
+
+                            when (user) {
+                                "xavier" -> email = "xavier@email.pt"
+                                "rafa" -> email = "rafa@email.pt"
+                                "jose" -> email = "jose@email.pt"
+                                else -> email = "pedro@gmail.pt"
+                            }
+                           auth = FirebaseAuth.getInstance()
+                            auth.signInWithEmailAndPassword(email,"123456")
                             Toast.makeText(this@login, "Bem vindo", Toast.LENGTH_SHORT).show()
                             startActivity(intent)
                             finish()
