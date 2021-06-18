@@ -42,13 +42,13 @@ class ChatLog : AppCompatActivity() {
         setContentView(R.layout.activity_chat_log)
 
         auth = FirebaseAuth.getInstance()
-        mRootRef = FirebaseDatabase.getInstance().getReference()
-        currentUserId = auth.getCurrentUser()!!.uid
+        mRootRef = FirebaseDatabase.getInstance().reference
+        currentUserId = auth.currentUser!!.uid
 
         etMessage = findViewById(R.id.etMessage)
         var chat_to : String = ""
-        if (getIntent().hasExtra("USER_KEY")) {
-            chat_to = getIntent().getStringExtra("USER_KEY").toString();
+        if (intent.hasExtra("USER_KEY")) {
+            chat_to = intent.getStringExtra("USER_KEY").toString();
         }
         var email = ""
 
@@ -60,7 +60,7 @@ class ChatLog : AppCompatActivity() {
         }
 
 
-        val btn = findViewById(R.id.send_button_chat_log) as Button
+        val btn = findViewById<Button>(R.id.send_button_chat_log)
         // set on-click listener
         btn.setOnClickListener {
             val userMessagePush =

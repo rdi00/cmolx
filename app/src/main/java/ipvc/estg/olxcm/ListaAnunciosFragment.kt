@@ -63,7 +63,7 @@ class ListaAnunciosFragment : Fragment() {
                 }
             }
             override fun onFailure(call: Call<List<Anuncio>>, t: Throwable) {
-                Log.d("WWWWWWWW", "$t")
+
                 Toast.makeText(this@ListaAnunciosFragment.context, "$t", Toast.LENGTH_SHORT).show()
             }
 
