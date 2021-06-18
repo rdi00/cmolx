@@ -14,8 +14,8 @@
         android:id="@+id/tituloLeilao"
         android:layout_width="187dp"
         android:layout_height="29dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="124dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="128dp"
         android:textColor="@color/Preto"
         android:textSize="17dp"
         android:textStyle="bold"
@@ -29,8 +29,8 @@
         android:layout_height="20dp"
 
 
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="108dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="128dp"
         android:textColor="@color/Preto"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,8 +43,8 @@
         android:layout_height="20dp"
 
 
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="108dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="128dp"
         android:textColor="@color/Preto"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"

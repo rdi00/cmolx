@@ -3,13 +3,16 @@ package ipvc.estg.olxcm
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import ipvc.estg.olxcm.R
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import ipvc.estg.olxcm.api.Endpoints
 import ipvc.estg.olxcm.api.ServiceBuilder
 import ipvc.estg.olxcm.api.Utilizador
@@ -17,19 +20,14 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+
 class login : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        val sharedPref: SharedPreferences = getSharedPreferences(
-            getString(R.string.preference_file_key), Context.MODE_PRIVATE)
 
-        val id:Int = sharedPref.getInt(R.string.id.toString(), 0)
-        if(id != 0){
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
+
 
 
         val login = findViewById<Button>(R.id.login)
@@ -52,33 +50,21 @@ class login : AppCompatActivity() {
                     if (response.isSuccessful) {
                         var i = response.body()!!
 
-                        if(i.id != 0){
 
-
-                            val sharedPref: SharedPreferences = getSharedPreferences(
-                                getString(R.string.preference_file_key), Context.MODE_PRIVATE
-                            )
-                            with(sharedPref.edit()) {
-                                putInt(R.string.id.toString(), i.id)
-                                commit()
-                            }
                             var email = ""
 
                             when (user) {
-                                "xavier" -> email = "xavier@email.pt"
-                                "rafa" -> email = "rafa@email.pt"
+                                "diogo" -> email = "xavier@email.pt"
+                                "rafael" -> email = "rafa@email.pt"
                                 "jose" -> email = "jose@email.pt"
                                 else -> email = "pedro@gmail.pt"
                             }
-                           auth = FirebaseAuth.getInstance()
+                            auth = FirebaseAuth.getInstance()
                             auth.signInWithEmailAndPassword(email,"123456")
+                            Log.d("testar",auth.currentUser?.uid.toString())
                             Toast.makeText(this@login, "Bem vindo", Toast.LENGTH_SHORT).show()
                             startActivity(intent)
                             finish()
-                        }else{
-                            Toast.makeText(this@login, "Erro de login", Toast.LENGTH_SHORT).show()
-                        }
-
 
 
 
@@ -94,5 +80,13 @@ class login : AppCompatActivity() {
 
 
         }
-        }
     }
+
+    private fun reload() {
+        TODO("Not yet implemented")
+    }
+
+    companion object {
+        private const val TAG = "EmailPassword"
+    }
+}

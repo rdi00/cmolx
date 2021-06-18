@@ -43,19 +43,19 @@
         android:id="@+id/ultimoLance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="164dp"
+        android:layout_marginTop="80dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.084"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
         app:layout_constraintTop_toBottomOf="@+id/precoInicial" />
 
     <Button
         android:id="@+id/licitar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="128dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="28dp"
         android:text="Licitar"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ultimoLance" />
 
@@ -74,24 +74,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="12dp"
-        android:layout_marginBottom="160dp"
+        android:layout_marginBottom="124dp"
         android:ems="10"
         android:hint="valor a licitar"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/licitar"
-        app:layout_constraintHorizontal_bias="0.426"
+        app:layout_constraintHorizontal_bias="0.63"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ultimoLance"
-        app:layout_constraintVertical_bias="0.73" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintVertical_bias="0.646" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="40dp"
-        android:text="Ultimo Lance:"
-        app:layout_constraintBottom_toTopOf="@+id/novoValor"
-        app:layout_constraintEnd_toStartOf="@+id/ultimoLance" />
+        android:text="Ultimo Lance: "
+        tools:layout_editor_absoluteX="169dp"
+        tools:layout_editor_absoluteY="476dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

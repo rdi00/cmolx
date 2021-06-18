@@ -85,7 +85,7 @@ class LeilaoEcra : AppCompatActivity() {
                     Toast.makeText(this@LeilaoEcra, "${t.message}", Toast.LENGTH_SHORT).show()
                 }
             })
-            
+
         }
 
         val handler = Handler()
